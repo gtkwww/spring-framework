@@ -376,8 +376,8 @@ public abstract class AbstractEnvironment implements ConfigurableEnvironment {
 
 	@Override
 	@SuppressWarnings({"unchecked", "rawtypes"})
-	public Map<String, Object> getSystemEnvironment() {
-		if (suppressGetenvAccess()) {
+	public Map<String, Object> getSystemEnvironment() {  // 获得系统环境变量
+ 		if (suppressGetenvAccess()) {
 			return Collections.emptyMap();
 		}
 		try {
@@ -420,7 +420,7 @@ public abstract class AbstractEnvironment implements ConfigurableEnvironment {
 
 	@Override
 	@SuppressWarnings({"unchecked", "rawtypes"})
-	public Map<String, Object> getSystemProperties() {
+	public Map<String, Object> getSystemProperties() {  // 获得系统相关属性
 		try {
 			return (Map) System.getProperties();
 		}

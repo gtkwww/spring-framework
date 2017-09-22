@@ -202,7 +202,7 @@ public abstract class AbstractRefreshableApplicationContext extends AbstractAppl
 	 * @see org.springframework.beans.factory.support.DefaultListableBeanFactory#setAllowCircularReferences
 	 * @see org.springframework.beans.factory.support.DefaultListableBeanFactory#setAllowRawInjectionDespiteWrapping
 	 */
-	protected DefaultListableBeanFactory createBeanFactory() {
+	protected DefaultListableBeanFactory createBeanFactory() {   // 为当前上下文创建一个Bean工厂
 		return new DefaultListableBeanFactory(getInternalParentBeanFactory());
 	}
 
@@ -222,10 +222,10 @@ public abstract class AbstractRefreshableApplicationContext extends AbstractAppl
 	 */
 	protected void customizeBeanFactory(DefaultListableBeanFactory beanFactory) {
 		if (this.allowBeanDefinitionOverriding != null) {
-			beanFactory.setAllowBeanDefinitionOverriding(this.allowBeanDefinitionOverriding);
+			beanFactory.setAllowBeanDefinitionOverriding(this.allowBeanDefinitionOverriding);   // 设置是否允许具有相同名称但定义不同的Bean定义进行覆盖
 		}
 		if (this.allowCircularReferences != null) {
-			beanFactory.setAllowCircularReferences(this.allowCircularReferences);
+			beanFactory.setAllowCircularReferences(this.allowCircularReferences);   // 设置是否允许Bean之间进行循环引用
 		}
 	}
 

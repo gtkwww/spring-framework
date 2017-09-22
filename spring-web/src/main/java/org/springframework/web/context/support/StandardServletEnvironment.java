@@ -45,13 +45,13 @@ import org.springframework.web.context.ConfigurableWebEnvironment;
 public class StandardServletEnvironment extends StandardEnvironment implements ConfigurableWebEnvironment {
 
 	/** Servlet context init parameters property source name: {@value} */
-	public static final String SERVLET_CONTEXT_PROPERTY_SOURCE_NAME = "servletContextInitParams";
+	public static final String SERVLET_CONTEXT_PROPERTY_SOURCE_NAME = "servletContextInitParams";   // Servlet上下文初始化参数的属性源名称
 
 	/** Servlet config init parameters property source name: {@value} */
-	public static final String SERVLET_CONFIG_PROPERTY_SOURCE_NAME = "servletConfigInitParams";
+	public static final String SERVLET_CONFIG_PROPERTY_SOURCE_NAME = "servletConfigInitParams";     // Servlet配置初始化参数的属性源名称
 
 	/** JNDI property source name: {@value} */
-	public static final String JNDI_PROPERTY_SOURCE_NAME = "jndiProperties";
+	public static final String JNDI_PROPERTY_SOURCE_NAME = "jndiProperties";                        // JNDI的属性源名称
 
 
 	/**

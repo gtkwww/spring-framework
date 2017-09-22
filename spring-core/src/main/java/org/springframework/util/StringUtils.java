@@ -1076,7 +1076,7 @@ public abstract class StringUtils {
 	 * @see String#trim()
 	 * @see #delimitedListToStringArray
 	 */
-	public static String[] tokenizeToStringArray(@Nullable String str, String delimiters) {
+	public static String[] tokenizeToStringArray(@Nullable String str, String delimiters) {   // 通过StringTokenizer将给定的字符串转化为String数组。
 		return tokenizeToStringArray(str, delimiters, true, true);
 	}
 

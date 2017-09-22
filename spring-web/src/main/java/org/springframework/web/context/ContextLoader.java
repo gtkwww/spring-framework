@@ -275,14 +275,14 @@ public class ContextLoader {
 			// Store context in local instance variable, to guarantee that
 			// it is available on ServletContext shutdown.
 			if (this.context == null) {
-				this.context = createWebApplicationContext(servletContext);
+				this.context = createWebApplicationContext(servletContext);  // 创建web应用程序上下文
 			}
 			if (this.context instanceof ConfigurableWebApplicationContext) {
 				ConfigurableWebApplicationContext cwac = (ConfigurableWebApplicationContext) this.context;
-				if (!cwac.isActive()) {
+				if (!cwac.isActive()) {  // 判断是否处于活动状态
 					// The context has not yet been refreshed -> provide services such as
 					// setting the parent context, setting the application context id, etc
-					if (cwac.getParent() == null) {
+					if (cwac.getParent() == null) {   // 判断是否有父节点
 						// The context instance was injected without an explicit parent ->
 						// determine parent for root web application context, if any.
 						ApplicationContext parent = loadParentContext(servletContext);
@@ -337,12 +337,12 @@ public class ContextLoader {
 	 * @see ConfigurableWebApplicationContext
 	 */
 	protected WebApplicationContext createWebApplicationContext(ServletContext sc) {
-		Class<?> contextClass = determineContextClass(sc);
-		if (!ConfigurableWebApplicationContext.class.isAssignableFrom(contextClass)) {
+		Class<?> contextClass = determineContextClass(sc);  // 得到实例化Web应用程序上下文的类
+ 		if (!ConfigurableWebApplicationContext.class.isAssignableFrom(contextClass)) {
 			throw new ApplicationContextException("Custom context class [" + contextClass.getName() +
 					"] is not of type [" + ConfigurableWebApplicationContext.class.getName() + "]");
 		}
-		return (ConfigurableWebApplicationContext) BeanUtils.instantiateClass(contextClass);
+		return (ConfigurableWebApplicationContext) BeanUtils.instantiateClass(contextClass);  // 对Web应用程序上下文进行实例化
 	}
 
 	/**
@@ -377,7 +377,7 @@ public class ContextLoader {
 	}
 
 	protected void configureAndRefreshWebApplicationContext(ConfigurableWebApplicationContext wac, ServletContext sc) {
-		if (ObjectUtils.identityToString(wac).equals(wac.getId())) {
+		if (ObjectUtils.identityToString(wac).equals(wac.getId())) {   // 判断当前Web应用程序上下文ID是否和其标识相同
 			// The application context id is still set to its original default value
 			// -> assign a more useful id based on available information
 			String idParam = sc.getInitParameter(CONTEXT_ID_PARAM);
@@ -391,7 +391,7 @@ public class ContextLoader {
 			}
 		}
 
-		wac.setServletContext(sc);
+		wac.setServletContext(sc);  // 设置当前Web应用程序上下文中的ServletContext
 		String configLocationParam = sc.getInitParameter(CONFIG_LOCATION_PARAM);
 		if (configLocationParam != null) {
 			wac.setConfigLocation(configLocationParam);
