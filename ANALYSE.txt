@@ -1,0 +1,35 @@
+static()                                                --> ContextLoader                  加载默认策略
+contextInitialized()                                    --> ContextLoaderListener
+    initWebApplicationContext()                         --> ContextLoader
+        createWebApplicationContext()
+        configureAndRefreshWebApplicationContext()
+            setId()                                     --> ConfigurableWebApplicationContext
+            setServletContext()
+            setConfigLocation()
+            getEnvironment()
+                initPropertySources()                   --> ConfigurableWebEnvironment
+            customizeContext()                          --> ContextLoader
+            refresh()                                   --> ConfigurableWebApplicationContext --> AbstractApplicationContext
+                prepareRefresh()
+                obtainFreshBeanFactory()
+                prepareBeanFactory()
+                postProcessBeanFactory()
+                invokeBeanFactoryPostProcessors()
+                registerBeanPostProcessors()
+                initMessageSource()
+                initApplicationEventMulticaster()
+                onRefresh()
+                registerListeners()
+                finishBeanFactoryInitialization()
+                finishRefresh()
+                resetCommonCaches()
+
+
+
+
+
+
+
+
+
+
